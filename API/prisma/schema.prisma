@@ -12,3 +12,20 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id Int @id() @default(autoincrement())   // @default คือ ค่าเริ่มต้นให้ Insert เรียงลำดับไปเรื่อยๆ
+  name String
+  level String
+  username String
+  password String 
+  status String @default("use") // @default คือ ค่าเริ่มต้นให้ Insert use
+}
+
+model TypeFood {
+  id Int @id @default(autoincrement())
+  name String
+  remark String? // = ? null ได้
+  status String @default("use") //use ,delete
+
+}
