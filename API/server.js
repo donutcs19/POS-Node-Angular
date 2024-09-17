@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const cors = require('cors'); 
+const cors = require("cors");
+const fileUpload = require("express-fileupload");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors()); //ให้ font เชื่อมต่อ back ได้
+app.use(fileUpload());
+app.use("/uploads", express.static("./uploads"));
 
 const UserController = require("./controllers/UserController");
 const FoodTypeController = require("./controllers/FoodTypeController");
@@ -35,6 +38,7 @@ app.post("/api/food/create", (req, res) => FoodController.create(req, res));
 app.get("/api/food/list", (req, res) => FoodController.list(req, res));
 app.delete("/api/food/remove/:id", (req, res) => FoodController.remove(req, res));
 app.put("/api/food/update", (req, res) => FoodController.update(req, res));
+app.post("/api/food/upload", (req, res) => FoodController.upload(req, res));
 
 
 
