@@ -11,6 +11,8 @@ const UserController = require("./controllers/UserController");
 const FoodTypeController = require("./controllers/FoodTypeController");
 const FoodSizeController = require("./controllers/FoodSizeController");
 const TasteController = require("./controllers/TasteController");
+const Food = require("./controllers/FoodController");
+const FoodController = require("./controllers/FoodController");
 
 app.post("/api/user/signIn", (req, res) => UserController.signIn(req, res));
 
@@ -25,9 +27,14 @@ app.delete("/api/foodSize/remove/:id", (req, res) => FoodSizeController.remove(r
 app.put("/api/foodSize/update", (req, res) => FoodSizeController.update(req, res));
 
 app.post("/api/taste/create", (req, res) => TasteController.create(req, res));
-app.get("/api/taste/list" , (req, res) => TasteController.list(req, res));
+app.get("/api/taste/list", (req, res) => TasteController.list(req, res));
 app.delete("/api/taste/remove/:id", (req, res) => TasteController.remove(req, res));
 app.put("/api/taste/update", (req, res) => TasteController.update(req, res));
+
+app.post("/api/food/create", (req, res) => FoodController.create(req, res));
+app.get("/api/food/list", (req, res) => FoodController.list(req, res));
+app.delete("/api/food/remove/:id", (req, res) => FoodController.remove(req, res));
+app.put("/api/food/update", (req, res) => FoodController.update(req, res));
 
 
 
