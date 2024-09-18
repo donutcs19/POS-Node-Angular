@@ -29,7 +29,7 @@ module.exports = {
                 const key = process.env.SECRET_KEY; //รับ key มาใช้
                 const token = jwt.sign(rows, key, { expiresIn: '30d' }); //สร้าง JWT โดยใช้ข้อมูลในตัวแปร rows เป็น payload และเซ็นด้วย key ซึ่ง JWT ที่สร้างขึ้นนี้จะหมดอายุหลังจาก 30 วัน
 
-                return res.send({ token: token, name: rows.name }); //ถ้าผ่านให้ส่ง token และ ส่งชื่อไปใช้งาน
+                return res.send({ token: token, name: rows.name, id: rows.id }); //ถ้าผ่านให้ส่ง token และ ส่งชื่อไปใช้งาน
             }
 
             return res.status(401).send({ message: "unauthorized" }); //sign in ไม่ผ่าน
