@@ -43,6 +43,8 @@ app.post("/api/food/upload", (req, res) => FoodController.upload(req, res));
 app.get("/api/food/filter/:foodType", (req, res) => FoodController.filter(req, res));
 
 app.post("/api/saleTemp/create", (req, res) => saleTempController.create(req, res));
+app.get("/api/saleTemp/list/:userId", (req, res) => saleTempController.list(req, res));
+app.delete("/api/saleTemp/clear/:userId", (req, res) => saleTempController.clear(req, res));
 
 
 
