@@ -29,6 +29,7 @@ app.post("/api/foodSize/create", (req, res) => FoodSizeController.create(req, re
 app.get("/api/foodSize/list", (req, res) => FoodSizeController.list(req, res));
 app.delete("/api/foodSize/remove/:id", (req, res) => FoodSizeController.remove(req, res));
 app.put("/api/foodSize/update", (req, res) => FoodSizeController.update(req, res));
+app.get("/api/foodSize/filter/:foodTypeId", (req, res) => FoodSizeController.filter(req, res));
 
 app.post("/api/taste/create", (req, res) => TasteController.create(req, res));
 app.get("/api/taste/list", (req, res) => TasteController.list(req, res));
@@ -45,6 +46,8 @@ app.get("/api/food/filter/:foodType", (req, res) => FoodController.filter(req, r
 app.post("/api/saleTemp/create", (req, res) => saleTempController.create(req, res));
 app.get("/api/saleTemp/list/:userId", (req, res) => saleTempController.list(req, res));
 app.delete("/api/saleTemp/clear/:userId", (req, res) => saleTempController.clear(req, res));
+app.delete("/api/saleTemp/delete/:foodId/:userId", (req, res) => saleTempController.delete(req, res));
+app.put("/api/saleTemp/changeQty", (req, res) => saleTempController.changeQty(req, res));
 
 
 
